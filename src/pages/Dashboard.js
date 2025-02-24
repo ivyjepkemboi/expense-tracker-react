@@ -23,7 +23,7 @@ const Dashboard = () => {
   const fetchExpenseHeads = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/expenses/heads", {
+      const response = await axios.get("https://expense-tracker-flask-c0dd.onrender.com/expenses/heads", {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -49,7 +49,7 @@ const Dashboard = () => {
   const fetchExpenseReports = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/expenses/reports", {
+      const response = await axios.get("https://expense-tracker-flask-c0dd.onrender.com/expenses/reports", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

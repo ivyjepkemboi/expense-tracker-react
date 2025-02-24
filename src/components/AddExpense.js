@@ -51,7 +51,7 @@ const AddExpense = ({ refreshDashboard }) => {
     if (!categoryId) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://localhost:5000/expenses/subcategories/${categoryId}`, {
+      const response = await axios.get(`https://expense-tracker-flask-c0dd.onrender.com/expenses/subcategories/${categoryId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSubcategories(response.data);
