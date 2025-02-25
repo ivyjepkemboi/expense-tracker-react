@@ -20,7 +20,7 @@ const ManageExpenses = () => {
   const fetchExpenseHeads = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/expenses/heads", {
+      const response = await axios.get("https://expense-tracker-flask-c0dd.onrender.com/expenses/heads", {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -36,7 +36,7 @@ const ManageExpenses = () => {
     if (!headId) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://localhost:5000/expenses/categories/${headId}`, {
+      const response = await axios.get(`https://expense-tracker-flask-c0dd.onrender.com/expenses/categories/${headId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCategories(response.data);
@@ -51,7 +51,7 @@ const ManageExpenses = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/expenses/heads",
+        "https://expense-tracker-flask-c0dd.onrender.com/expenses/heads",
         { name: newHead },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -68,7 +68,7 @@ const ManageExpenses = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/expenses/categories",
+        "https://expense-tracker-flask-c0dd.onrender.com/expenses/categories",
         { name: newCategory, head_id: selectedHead },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -85,7 +85,7 @@ const ManageExpenses = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/expenses/subcategories",
+        "https://expense-tracker-flask-c0dd.onrender.com/expenses/subcategories",
         { name: newSubcategory, category_id: selectedCategory },
         { headers: { Authorization: `Bearer ${token}` } }
       );
