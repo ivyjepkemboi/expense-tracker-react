@@ -74,7 +74,7 @@ const AddExpense = ({ refreshDashboard }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/expenses/add",
+        "https://expense-tracker-flask-c0dd.onrender.com/expenses/add",
         {
           title,
           amount,
