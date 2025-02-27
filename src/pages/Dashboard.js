@@ -27,22 +27,23 @@ const Dashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
   
+      console.log("Expense Heads Response:", response.data); // Debugging
+
       setExpenseHeads(response.data);
   
-      // Update Pie Chart Data
       setPieChartData({
         labels: response.data.map((head) => head.name),
         datasets: [
           {
-            data: response.data.map((head) => head.total_amount),
+            data: response.data.map((head) => head.total_amount || 0), // Ensure there's a value
             backgroundColor: ["#4318FF", "#6AD2FF", "#EFF4FB", "#FFB800"],
           },
         ],
       });
     } catch (error) {
-      console.error("Error fetching expense heads:", error);
+      console.error("Error fetching expense heads:", error.response ? error.response.data : error);
     }
-  };
+};
   
 
   // Fetch expenses over time for Bar Chart

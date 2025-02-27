@@ -21,7 +21,7 @@ const AddExpense = ({ refreshDashboard }) => {
   const fetchExpenseHeads = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/expenses/heads", {
+      const response = await axios.get("https://expense-tracker-flask-c0dd.onrender.com/expenses/heads", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setExpenseHeads(response.data);
@@ -35,7 +35,7 @@ const AddExpense = ({ refreshDashboard }) => {
     if (!headId) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://localhost:5000/expenses/categories/${headId}`, {
+      const response = await axios.get(`https://expense-tracker-flask-c0dd.onrender.com//expenses/categories/${headId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCategories(response.data);
